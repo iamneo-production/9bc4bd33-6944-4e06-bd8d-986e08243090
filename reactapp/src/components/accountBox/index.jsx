@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { LoginForm } from "./loginForm";
+import  Login  from "./Login";
 import { motion } from "framer-motion";
 import { AccountContext } from "./accountContext";
-import { SignupForm } from "./signupForm";
+import  Signup  from "./Signup";
 
 const BoxContainer = styled.div`
   width: 300px;
-  min-height: 580px;
+  min-height: 550px;
   display: flex;
   flex-direction: column;
   border-radius: 19px;
@@ -40,7 +40,7 @@ const BackDrop = styled(motion.div)`
   background: #ff0066;
   background: linear-gradient(
     58deg,
-    #ff0066 30%,
+    #ff0066 20%,
     #0000ff 100%
   );
 `;
@@ -74,6 +74,7 @@ const InnerContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 1.8em;
+  margin: 30px 10px;
 `;
 
 const backdropVariants = {
@@ -150,8 +151,8 @@ export function AccountBox(props) {
           )}
         </TopContainer>
         <InnerContainer>
-          {active === "signin" && <LoginForm />}
-          {active === "signup" && <SignupForm />}
+          {active === "signin" && <Login />}
+          {active === "signup" && <Signup />}
         </InnerContainer>
       </BoxContainer>
     </AccountContext.Provider>
