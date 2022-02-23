@@ -1,21 +1,20 @@
-import "./App.css";
-import styled from "styled-components";
-import { AccountBox } from "./components/accountBox"; 
+import React  from 'react';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import admin_add_products from '/home/coder/project/workspace/reactapp/src/Admin/add_products/admin_add_products.jsx';
 
-const AppContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
+
 
 function App() {
   return (
-    <AppContainer>
-      <AccountBox />
-    </AppContainer>
+    <div className="App">
+      <BrowserRouter>
+            <Routes>
+              <Route exact path="/home/coder/project/workspace/reactapp/src/Admin/add_products/admin_add_products.jsx" component={admin_add_products} />
+              
+            </Routes>
+          
+      </BrowserRouter>
+    </div>
   );
 }
 
