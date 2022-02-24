@@ -41,7 +41,6 @@ const FormSignup = ({ submitForm }) => {
           <label className='form-label'>Mobile Number</label>
           <input
             className='form-input'
-            type='number'
             name='number'
             placeholder='Enter your Mobile Number'
             value={values.mobileNo}
