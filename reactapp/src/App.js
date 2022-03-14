@@ -1,22 +1,21 @@
-import Sidebar from "./components/sidebar/Sidebar";
-import Topbar from "./components/topbar/Topbar";
+import Sidebar from "./Admin/components/sidebar/Sidebar";
+import Topbar from "./Admin/components/topbar/Topbar";
 import "./App.css";
-import Login from './pages/login/Login';
-import ForgetPassword from './pages/forgetPassword/ForgetPassword';
-import FirstPage from './pages/firstPage/FirstPage';
-import Home from "./pages/home/Home";
+import Login from './Admin/pages/login/Login';
+import ForgetPassword from './Admin/pages/forgetPassword/ForgetPassword';
+import FirstPage from './Admin/pages/firstPage/FirstPage';
+import Home from "./Admin/pages/home/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import UserList from "./pages/userList/UserList";
-import User from "./pages/user/User";
-import NewUser from "./pages/newUser/NewUser";
-import ProductList from "./pages/productList/ProductList";
-import Product from "./pages/product/Product";
-import NewProduct from "./pages/newProduct/NewProduct";
-import OrderList from "./pages/orderList/OrderList";
+import UserList from "./Admin/pages/userList/UserList";
+import User from "./Admin/pages/user/User";
+import NewUser from "./Admin/pages/newUser/NewUser";
+import ProductList from "./Admin/pages/productList/ProductList";
+import Product from "./Admin/pages/product/Product";
+import NewProduct from "./Admin/pages/newProduct/NewProduct";
+import OrderList from "./Admin/pages/orderList/OrderList";
 function App() {
   return (
     <Router>
-      
       <div className="container">
         <Switch>
         <Route exact path="/">
@@ -29,9 +28,7 @@ function App() {
             <ForgetPassword />
           </Route>
           <Route path="/Home">
-          
             <Sidebar/>
-           
             <Home />
           </Route>
           <Route path="/users">
