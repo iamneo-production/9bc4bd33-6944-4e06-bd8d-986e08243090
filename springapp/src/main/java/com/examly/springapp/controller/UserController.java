@@ -13,27 +13,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import com.examly.springapp.model.User;
-import com.examly.springapp.service.UserService;
+import com.examly.springapp.service.UserCRUDService;
 import com.examly.springapp.model.Dto;
 import com.examly.springapp.repository.UserRepository;
-import com.examly.springapp.service.UserService;
-import com.examly.springapp.exception.ResourceNotFoundException;
+//import com.examly.springapp.exception.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.data.jpa.repository.Query;
-import org.modelmapper.ModelMapper;
- 
+//import org.modelmapper.ModelMapper;
+
+//additional
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+
+//additional
+@CrossOrigin(origins = "*")
+
+
 @RestController
-@RequestMapping("/admin")
+//@RequestMapping("/admin")
 public class UserController {
     
     @Autowired
-    private UserService userService;
+    private UserCRUDService userService;
   
  
-    public UserController(UserService userService) {
+    public UserController(UserCRUDService userService) {
         this.userService = userService;
     }
 
