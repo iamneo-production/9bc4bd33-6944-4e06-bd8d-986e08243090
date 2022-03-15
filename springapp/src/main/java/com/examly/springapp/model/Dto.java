@@ -13,6 +13,9 @@ public class Dto {
     private String email;
     private String username;
     private String mobileNumber;
+    
+    //additional
+    private boolean active;
    
 
     // Ud(){}
