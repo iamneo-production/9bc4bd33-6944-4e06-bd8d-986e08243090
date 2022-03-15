@@ -1,4 +1,4 @@
-package com.examly.springapp.service;
+/*package com.examly.springapp.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.examly.springapp.repository.ProductRepository;
 import com.examly.springapp.model.Product;
@@ -56,4 +56,57 @@ public class ProductService {
     productRepository.deleteById(productId);
     return "deleted successfully";
     }
+}
+*/
+package com.examly.springapp.service;
+
+import com.examly.springapp.model.Product;
+import com.examly.springapp.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.*;
+
+@Service
+public class ProductService {
+
+@Autowired
+private ProductRepository repository; 
+
+//service methods
+//add
+
+public Product saveProduct(Product product){
+    return repository.save(product);
+}
+ 
+public List<Product> saveProducts(List<Product> products){
+    return repository.saveAll(products);
+}
+
+//view
+public Product getProductById(int id){
+    return repository.findById(id).orElse(null);
+}
+
+public List<Product> getProducts(){
+    return repository.findAll();
+}
+
+//delete
+public void deleteProduct(int id){
+    repository.deleteById(id);
+    
+}
+
+//update
+public Product updateProduct(int id) {
+    Product existingProduct = repository.findById(id).orElse(null);
+    Product product = repository.findById(id).orElse(null);
+    existingProduct.setStatus(product.getStatus());
+    existingProduct.setStock(product.getStock());
+    existingProduct.setPrice(product.getPrice());
+    return repository.save(existingProduct);
+}
+
+ 
 }
