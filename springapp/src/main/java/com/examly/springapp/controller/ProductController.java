@@ -1,4 +1,4 @@
-package com.examly.springapp.controller;
+/*package com.examly.springapp.controller;
 import java.util.List;
 import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.processing.Generated;
@@ -76,4 +76,74 @@ public class ProductController {
 
 
     
+}
+*/
+package com.examly.springapp.controller;
+
+import org.springframework.ui.Model;
+import com.examly.springapp.model.Product;
+import com.examly.springapp.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import java.util.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.stereotype.Controller;
+
+@CrossOrigin(origins = "*")
+@RestController
+public class ProductController {
+
+@Autowired
+private ProductService productService;
+
+//api
+//add
+@PostMapping("/addProduct")
+public Product addProduct(@RequestBody Product product){
+    return productService.saveProduct(product);
+}
+
+@PostMapping("/admin/addProduct")
+public List<Product> addProducts(@RequestBody List<Product> products){
+    return productService.saveProducts(products);
+}
+
+//view
+@GetMapping("/product/{id}")
+public Product findProductByID(@PathVariable int id){
+    return productService.getProductById(id);
+}
+
+@GetMapping("/home")
+public List<Product> findAllProductsHome(){
+    return productService.getProducts();
+}
+
+@GetMapping("/admin")
+public List<Product> findAllProductsAdmin(){
+    return productService.getProducts();
+}
+
+//delete
+@DeleteMapping("/admin/delete/{id}")
+public String deleteProduct(@PathVariable int id){
+    productService.deleteProduct(id);
+    return "Product Removed";
+}
+
+@DeleteMapping("/multideleteProduct")
+public String deleteSomeProduct(@RequestBody List<Integer> ids){
+for(int id : ids){
+    productService.deleteProduct(id);
+}
+    return "Products Removed";
+}
+
+//update
+@PutMapping("/admin/productEdit/{id}")
+    public Product updateProduct(@PathVariable int id) {
+        return productService.updateProduct(id);
+    }
+
+
 }
