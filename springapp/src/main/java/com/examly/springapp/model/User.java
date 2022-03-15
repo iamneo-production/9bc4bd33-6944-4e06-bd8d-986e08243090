@@ -112,4 +112,5 @@ public class User {
         return Objects.equals(username, user.getUsername()) ||
                 Objects.equals(email, user.getEmail()) || Objects.equals(mobileNumber,user.getMobileNumber());
     }
+}
 
