@@ -13,6 +13,12 @@ import ProductList from "./Admin/pages/productList/ProductList";
 import Product from "./Admin/pages/product/Product";
 import NewProduct from "./Admin/pages/newProduct/NewProduct";
 import OrderList from "./Admin/pages/orderList/OrderList";
+import { Route, Routes } from 'react-router-dom';
+import Home from './User/components/Home'
+import About from './User/components/About'
+import Product from './User/components/Product'
+import Header from './User/components/Header'
+import ProductDetail from './User/components/ProductDetail';
 function App() {
   return (
     <Router>
@@ -62,6 +68,15 @@ function App() {
         </Switch>
       </div>
     </Router>
+    <>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/product' element={<Product />} />
+        <Route path='/product/:id' element={<ProductDetail />} />\
+      </Routes>
+    </>
   );
 }
 export default App;
