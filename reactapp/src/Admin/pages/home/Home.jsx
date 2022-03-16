@@ -28,35 +28,45 @@ export default function Home() {
       width: 160,
       
     },
-    /*{
-      field: "action",
-      headerName: "Action",
-      width: 150,
-      renderCell: (params) => {
-        return (
+    {
+      field: "action", headerName: "Action",width: 150,
+    renderCell: (params) => {
+    return (
           <p>
             <DeleteOutline
-              className="orderListDelete"
-              onClick={() => handleDelete(params.row.id)}
-            />
+              onClick={() => handleDelete(params.id)}
+            /> &nbsp;
+           
           </p>
         );
       },
-    },*/
+    },
+  
   ];
 
   const[tableData,setTableData]= useState([])
   useEffect(() => {
-    fetch("http://localhost:8080/helpdesk/getAll")
-      .then((data) => data.json())
-      .then((data) => setTableData(data))
-
-  }, [])
+    getHelpdesk()
+}, [])
   console.log(tableData)
 
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
-  };
+function getHelpdesk(){
+  fetch("http://localhost:8080/helpdesk/Helpdesks")
+      .then((data) => data.json())
+      .then((data) => setTableData(data))
+}
+
+const handleDelete = (id) => {
+fetch(`http://localhost:8080/helpdesk/Helpdeskdelete/${id}`,
+{
+  method:'DELETE'
+}).then((result)=>{
+  result.json().then((resp)=>{
+    console.warn(resp)
+    getHelpdesk()
+  })
+})
+};
   
   /*const rows = [
     { id: 1,userid: 101 , fullname: 'Jon Snow',email:'jon@snow.com',         message: 'Login Problem'},
