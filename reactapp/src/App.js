@@ -18,6 +18,8 @@ import Home from './User/components/Home'
 import About from './User/components/About'
 import Product from './User/components/Product'
 import Header from './User/components/Header'
+import Helpdesk from './User/components/Helpdesk'
+import Review from './User/components/Review';
 import ProductDetail from './User/components/ProductDetail';
 function App() {
   return (
@@ -75,6 +77,8 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/product' element={<Product />} />
         <Route path='/product/:id' element={<ProductDetail />} />\
+          <Route path='/product/:id/reviews' element={<Review />}/>
+        <Route path='/helpdesk' element={<Helpdesk />} />
       </Routes>
     </>
   );
