@@ -20,6 +20,8 @@ import Product from './User/components/Product'
 import Header from './User/components/Header'
 import Helpdesk from './User/components/Helpdesk'
 import Review from './User/components/Review';
+import Orders from './User/components/Orders';
+import Tracking from './User/components/Tracking';
 import ProductDetail from './User/components/ProductDetail';
 function App() {
   return (
@@ -79,6 +81,10 @@ function App() {
         <Route path='/product/:id' element={<ProductDetail />} />\
           <Route path='/product/:id/reviews' element={<Review />}/>
         <Route path='/helpdesk' element={<Helpdesk />} />
+          <Route path='/orders' element={<Orders/>}/>
+         <Route path="/view-order/:id" element={<Tracking/>}/>
+           <Route path="/customer-service" element={<Helpdesk />}/>
+//             <Route path="/bill-details" element={Orders}/>
       </Routes>
     </>
   );
