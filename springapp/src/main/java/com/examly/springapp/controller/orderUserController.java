@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PathVariable;
+
 import java.util.Map;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.http.ResponseEntity;
@@ -43,7 +44,7 @@ public class orderUserController {
     }
 
     @GetMapping("/Order/{id}")
-    public OrderModel findOrderID(@PathVariable Long id){
+    public OrderModel findOrderID(@PathVariable int id){
         return serviceModel.getOrderById(id);
     }
     @PostMapping("/addOrder")
