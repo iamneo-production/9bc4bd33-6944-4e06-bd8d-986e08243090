@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 import java.util.*;
 import java.beans.Transient;
 import com.examly.springapp.repository.OrderRepository;
+import com.examly.springapp.repository.orderUserRepository;
 import com.examly.springapp.model.OrderModel;
 import org.springframework.beans.factory.annotation.Autowired;
 @DataJpaTest
@@ -15,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class OrderTest{
    @Autowired
    private OrderRepository repo;
+   @Autowired
+   private orderUserRepository orderUserRepository;
    @Test
    public void testCreateOrder(){
        OrderModel order=new OrderModel(78,"snigdha","02-03-2021","regrg",(long)568952456,67,9,89.78,"Completed");
@@ -38,6 +41,11 @@ public void testGetOrder() {
 @Test
 public void testListOrders() {
     List<OrderModel> orders = (List<OrderModel>) repo.findAll();
+    assertThat(orders).size().isGreaterThan(0);
+}
+ @Test
+public void testListUserOrders() {
+    List<OrderModel> orders = (List<OrderModel>) orderUserRepository.findAll();
     assertThat(orders).size().isGreaterThan(0);
 }
 @Test
