@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import com.examly.springapp.model.OrderModel;
 
 @Repository
-public interface orderUserRepository extends JpaRepository<OrderModel, Long> {
+public interface orderUserRepository extends JpaRepository<OrderModel, Integer> {
     
 }
