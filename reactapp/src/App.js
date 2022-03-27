@@ -69,6 +69,10 @@ function App() {
           <Sidebar/>
             <OrderList />
           </Route>
+    <Route path="/orders">
+          <Sidebar/>
+            <Orders />
+          </Route>
         </Switch>
       </div>
     </Router>
