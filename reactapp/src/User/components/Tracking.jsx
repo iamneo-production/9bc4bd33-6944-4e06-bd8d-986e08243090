@@ -1,6 +1,5 @@
 import React,{ Component } from 'react'
 import './Tracking.css'
-import OrderService from "./OrderService";
 import {Link} from 'react-router-dom';
 
 
@@ -24,11 +23,6 @@ class Tracking extends React.Component {
   }
   
   
-  componentDidMount(){
-      OrderService.getOrdersById(this.state.id).then( res => {
-          this.setState({order: res.data}); });
-
-  }
 
   render() {
     
