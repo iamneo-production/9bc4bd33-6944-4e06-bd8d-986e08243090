@@ -33,7 +33,8 @@ class Tracking extends React.Component {
         <div class="card mb-3">
          <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
            
-            <div>Order Status : { this.state.order.status }</div> 
+//             <div>Order Status : { this.state.order.status }</div> 
+            <div>Order Status: {this.props.location.state.status}</div>
           </div>
           
           <div class="card-body">
