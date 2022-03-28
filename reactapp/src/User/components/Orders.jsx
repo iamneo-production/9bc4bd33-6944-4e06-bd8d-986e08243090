@@ -10,10 +10,10 @@ class Orders extends Component {
     state={
       orders:[]
     }
-    viewOrder(id)
-       {
-             this.props.history.push(`/view-order/${id}`);
-       }
+//     viewOrder(id)
+//        {
+//              this.props.history.push(`/view-order/${id}`);
+//        }
      
       componentDidMount(){
         fetch("https://8080-bdcafacdfaacdbaffddeefcfbeddbecdddbadefcdd.examlyiopb.examly.io/Orders")
@@ -54,11 +54,12 @@ class Orders extends Component {
                                     <td  value={order.name}>{order.name}</td>
                                     <td>{order.status}</td>
                                     <td>{order.date}</td>
-                                    <td ><button   onClick={() => this.viewOrder(order.id)}  value={order.status} className="btn btn-primary" style={{marginLeft:"25%"}}>Click here to see more</button>
+                                    {/* <td ><button   onClick={() => this.viewOrder(order.id)}  value={order.status} className="btn btn-primary" style={{marginLeft:"25%"}}>Click here to see more</button>*/}
                                     {/* <button onClick={() => this.deleteProduct(order.id)} className="btn btn-danger">cancel</button> */}
                                     {/* <button onClick={() => this.updateStatus(order.id,order.status)} value="canceled" className="btn btn-info">can</button>
                                      */}
-                                    </td>
+                                    {/*</td>*/}
+                                    <td><button className="btn btn-primary" style={{marginLeft:"40px"}} ><Link to={{ pathname: `/view-order/${order.id}`, state:{status:"dispatched"}  }} style ={{ color:"white"}} >Click here to see more</Link></button> </td>
                                  
                                   </tr>
                                     ))}
