@@ -265,3 +265,16 @@ HttpURLConnection http = (HttpURLConnection)url.openConnection();
 http.setRequestProperty("Authorization", "Bearer /users");
 System.out.println(http.getResponseCode() + " " + http.getResponseMessage());
 http.disconnect();
+
+
+/review/addReview : POST -> CHECKED & TESTED IN POSTMAN
+
+/review/Reviews : GET -> CHECKED & TESTED IN POSTMAN
+
+/review/delete/{id} : DELETE -> CHECKED & TESTED IN POSTMAN
+
+/helpdesk/addHelpdesk  POST -> CHECKED & TESTED IN POSTMAN
+
+/helpdesk/Helpdesks  GET -> CHECKED & TESTED IN POSTMAN
+
+/helpdesk/Helpdeskdelete/{id} : DELETE -> CHECKED & TESTED IN POSTMAN
