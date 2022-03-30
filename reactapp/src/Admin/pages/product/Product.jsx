@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./product.css";
 import Chart from "../../components/chart/Chart"
-import {productData} from "../../dummyData"
+import {productData} from "../../../dummyData"
 import { Publish } from "@material-ui/icons";
 export default function Product() {
   return (
@@ -45,7 +45,7 @@ export default function Product() {
           <form className="productForm">
               <div className="productFormLeft">
                   <label>Product Name</label>
-                  <input type="text" placeholder="Apple AirPod" />
+                  <input type="text" placeholder="Archer fish" />
                   <label>In Stock</label>
                   <select name="inStock" id="idStock">
                       <option value="yes">Yes</option>
@@ -72,3 +72,4 @@ export default function Product() {
     </div>
   );
 }
+
