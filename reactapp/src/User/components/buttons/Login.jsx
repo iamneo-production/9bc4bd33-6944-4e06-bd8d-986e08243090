@@ -18,18 +18,16 @@ const Login = () => {
                         <div className="modal-body">
                             <form>
                                 <div className="mb-3">
-                                    <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
+                                <h2>Email address</h2>
+                                   
                                     <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="passwordlogin" className="form-label">Password</label>
+                                <h2>Password</h2>
                                     <input type="password" className="form-control" id="passwordlogin" />
                                 </div>
-                                <div className="mb-3 form-check">
-                                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                                    <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-                                </div>
+                                
                                 <button type="submit" className="btn btn-primary w-100">Submit</button>
                             </form>
                         </div>
