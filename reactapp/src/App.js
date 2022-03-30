@@ -20,6 +20,7 @@ import ProductList from './Admin/pages/productList/ProductList';
 import Product from './Admin/pages/product/Product';
 import NewProduct from './Admin/pages/newProduct/NewProduct';
 import OrderList from './Admin/pages/orderList/OrderList';
+import Admin_helpdesk from './Admin/pages/Admin_helpdesk/Admin_helpdesk';
 import { Fragment } from 'react';
 function App() {
   return (
@@ -42,7 +43,8 @@ function App() {
         <Route path='/products' element={<Fragment><Sidebar/><ProductList /></Fragment>} />
         <Route path='/products/:productId' element={<Fragment><Sidebar/><Product /></Fragment>} />
         <Route path='/newproduct' element={<Fragment><Sidebar/> <NewProduct /></Fragment>} />
-        <Route path='/orders' element={<Fragment><Sidebar/> <OrderList /></Fragment>} />       
+        <Route path='/orders' element={<Fragment><Sidebar/> <OrderList /></Fragment>} />  
+        <Route path='/Admin_helpdesk' element={<Fragment><Sidebar /><Admin_helpdesk /></Fragment>} />                          
       </Routes>
       </div>    
     </>
