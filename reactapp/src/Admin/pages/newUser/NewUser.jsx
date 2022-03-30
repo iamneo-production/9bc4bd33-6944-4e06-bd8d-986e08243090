@@ -3,16 +3,12 @@ import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 export default function NewUser() {
 
-  const[active,setActive]=useState('true')
+  const[active,setActive]=useState('')
   const[email,setEmail]=useState('')
   const[mobileNumber,setNumber]=useState('')
-  
-  
   const[password,setPassword]=useState('')
   const[resetPasswordToken,setPasswordToken]=useState('null')
- 
   const[role,setRole]=useState('user')
-  
   const[username,setName]=useState('')
   
   
@@ -60,7 +56,8 @@ export default function NewUser() {
         
         <div className="newUserItem">
           <label>Active</label>
-          <select className="newUserSelect" name="active" id="active">
+          <select className="newUserSelect" name="active" id="active" onChange={(e)=>setActive(e.target.value)}>
+          <option value="option">Options</option>
             <option value="true">Active</option>
             <option value="false">Not Active</option>
           </select>
