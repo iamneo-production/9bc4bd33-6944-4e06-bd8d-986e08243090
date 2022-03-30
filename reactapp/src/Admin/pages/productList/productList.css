@@ -1,8 +1,10 @@
 .productList{
-    flex: 4;
-    margin-top: 50px;
-    margin-left: 50px;
-    margin-right: 50px;
+  flex: 4;
+  margin-top: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+  height: 550px;
+  width: 1200px;
 }
 
 .productListItem{
