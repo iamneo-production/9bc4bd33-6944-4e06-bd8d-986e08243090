@@ -1,7 +1,7 @@
 import "./productList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { productRows } from "../../dummyData";
+import { productRows } from "../../../dummyData";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 
@@ -9,7 +9,7 @@ export default function ProductList() {
   const [tableData, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://8080-acddafabaffddeefcfbeddbecdddbadefcdd.examlyiopb.examly.io/products")
+    fetch("https://8080-acddafabaffddeefcfbeddbecdddbadefcdd.examlyiopb.examly.io/admin")
       .then((data) => data.json())
       .then((data) => setData(data))
 
@@ -23,7 +23,7 @@ export default function ProductList() {
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
     {
-      field: "name",
+      field: "productName",
       headerName: "Product",
       width: 200,
       renderCell: (params) => {
@@ -43,7 +43,7 @@ export default function ProductList() {
     },
     {
       field: "price",
-      headerName: "Price",
+      headerName: "Price (in $)",
       width: 160,
     },
     {
@@ -53,7 +53,7 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/product/" + params.row.id}>
+            <Link to={"/products/" + params.row.id}>
               <button className="productListEdit">Edit</button>
             </Link>
             <DeleteOutline
