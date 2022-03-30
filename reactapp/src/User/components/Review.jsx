@@ -1,8 +1,8 @@
 import React, { useEffect,useState } from 'react'
 import { useParams } from 'react-router-dom'
-import Data from '../Data'
+import Data from '../../Data'
 import {FaStar} from "react-icons/fa"; //npm install react-icons
-import { DataGrid } from "@material-ui/data-grid";
+import { DataGrid } from "@material-ui/data-grid";//npm install @material-ui/icons
 import { DeleteOutline } from "@material-ui/icons";
 
 
@@ -94,9 +94,7 @@ fetch(`http://localhost:8080/review/delete/${id}`,
 })
 };
 
-  /*const handleUpdate = (id) => {
-    setData(data.filter((item) => item.id !== id));
-  };*/
+  
   
     
     
@@ -143,8 +141,8 @@ fetch(`http://localhost:8080/review/delete/${id}`,
                     </div>
                 </div>
             </div>
-            <h4>Review</h4>
-            <div className="problems_display">
+            <h2 style={{margin:'1px 800px' }}>Review</h2>
+            <div className="problems">
       <div style={{ height: 300, width: 900, margin:'1px 400px' }}>
       <DataGrid
         rows={tableData}
