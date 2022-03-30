@@ -26,6 +26,9 @@ const SideBar = ()=>{
                             <li className="nav-item">
                                 <Link className="nav-link" to="/orders">ORDERS</Link>
                             </li>
+                              <li className="nav-item">
+                                <Link className="nav-link" to="/Admin_helpdesk">HELPDESK</Link>
+                            </li>
                         </ul>
                         <Link className="navbar-brand mx-auto fw-bold" to="/">LOGOUT</Link>
                     </div>
