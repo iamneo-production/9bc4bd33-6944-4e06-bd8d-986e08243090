@@ -59,7 +59,7 @@ class Orders extends Component {
                                     {/* <button onClick={() => this.updateStatus(order.id,order.status)} value="canceled" className="btn btn-info">can</button>
                                      */}
                                     {/*</td>*/}
-                                    <td><button className="btn btn-primary" style={{marginLeft:"40px"}} ><Link to={{ pathname: `/view-order/${order.id}`, state:{status:"dispatched"}  }} style ={{ color:"white"}} >Click here to see more</Link></button> </td>
+                                    {/*  <td><button className="btn btn-primary" style={{marginLeft:"40px"}} ><Link to={{ pathname: `/view-order/${order.id}`, state:{status:"dispatched"}  }} style ={{ color:"white"}} >Click here to see more</Link></button> </td> */}
                                  
                                   </tr>
                                     ))}
