@@ -1,9 +1,32 @@
 import { Link } from "react-router-dom";
 import "./product.css";
 import Chart from "../../components/chart/Chart"
-import {productData} from "../../../dummyData"
+//import {productData} from "../../../dummyData"
 import { Publish } from "@material-ui/icons";
+import { useState,useEffect } from "react";
+import { useParams } from "react-router-dom";
 export default function Product() {
+
+
+        const [Data, setData] = useState([]);
+      
+        useEffect(() => {
+          fetch("https://8080-acddafabaffddeefcfbeddbecdddbadefcdd.examlyiopb.examly.io/admin")
+            .then((data) => data.json())
+            .then((data) => setData(data))
+      
+        }, [])
+
+
+
+
+        const prodid = useParams()
+        const proDetail = Data.filter(x => x.id == prodid.id)
+        const product = proDetail[1]
+        console.log(product)
+    
+
+
   return (
     <div className="product">
       <div className="productTitleContainer">
@@ -13,9 +36,7 @@ export default function Product() {
         </Link>
       </div>
       <div className="productTop">
-          <div className="productTopLeft">
-              <Chart data={productData} dataKey="Sales" title="Sales Performance"/>
-          </div>
+         
          <div className="productTopRight">
               <div className="productInfoTop">
                   <img src="https://th.bing.com/th/id/OIP.puMo9ITfruXP8iQx9cYcqwHaGJ?pid=ImgDet&rs=1" alt="" className="productInfoImg" />
@@ -24,19 +45,19 @@ export default function Product() {
               <div className="productInfoBottom">
                   <div className="productInfoItem">
                       <span className="productInfoKey">id:</span>
-                      <span className="productInfoValue">123</span>
+                      <span className="productInfoValue">1</span>
                   </div>
                   <div className="productInfoItem">
-                      <span className="productInfoKey">sales:</span>
-                      <span className="productInfoValue">5123</span>
+                      <span className="productInfoKey">Price:</span>
+                      <span className="productInfoValue">540</span>
                   </div>
                   <div className="productInfoItem">
-                      <span className="productInfoKey">active:</span>
-                      <span className="productInfoValue">yes</span>
+                      <span className="productInfoKey">Stock:</span>
+                      <span className="productInfoValue">9</span>
                   </div>
                   <div className="productInfoItem">
-                      <span className="productInfoKey">in stock:</span>
-                      <span className="productInfoValue">no</span>
+                      <span className="productInfoKey">Status:</span>
+                      <span className="productInfoValue">avaliable</span>
                   </div>
               </div>
           </div>
@@ -46,25 +67,29 @@ export default function Product() {
               <div className="productFormLeft">
                   <label>Product Name</label>
                   <input type="text" placeholder="Archer fish" />
-                  <label>In Stock</label>
-                  <select name="inStock" id="idStock">
-                      <option value="yes">Yes</option>
-                      <option value="no">No</option>
-                  </select>
-                  <label>Active</label>
+                
+                  <label>Stock</label>
+                <input
+                  type="number"
+                  placeholder="Enter Stock"
+                  className="userUpdateInput"
+                />
+                 <label>Price</label>
+                <input
+                  type="number"
+                  placeholder="Enter Price"
+                  className="userUpdateInput"
+                />
+
+                  <label>Status</label>
                   <select name="active" id="active">
-                      <option value="yes">Yes</option>
-                      <option value="no">No</option>
+                  <option value="option">Options</option>
+                      <option value="avaliable">Avaliable</option>
+                      <option value="notAvaliable">Not Avaliable</option>
                   </select>
               </div>
               <div className="productFormRight">
-                  <div className="productUpload">
-                      <img src="https://th.bing.com/th/id/OIP.puMo9ITfruXP8iQx9cYcqwHaGJ?pid=ImgDet&rs=1" alt="" className="productUploadImg" />
-                      <label for="file">
-                          <Publish/>
-                      </label>
-                      <input type="file" id="file" style={{display:"none"}} />
-                  </div>
+                 
                   <button className="productButton">Update</button>
               </div>
           </form>
