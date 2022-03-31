@@ -2,38 +2,25 @@ import { Link } from "react-router-dom";
 import "./product.css";
 import Chart from "../../components/chart/Chart"
 //import {productData} from "../../../dummyData"
+import Data from '../../../Data'
 import { Publish } from "@material-ui/icons";
 import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
 export default function Product() {
 
 
-        const [Data, setData] = useState([]);
-      
-        useEffect(() => {
-          fetch("https://8080-acddafabaffddeefcfbeddbecdddbadefcdd.examlyiopb.examly.io/admin")
-            .then((data) => data.json())
-            .then((data) => setData(data))
-      
-        }, [])
-
-
-
 
         const prodid = useParams()
         const proDetail = Data.filter(x => x.id == prodid.id)
-        const product = proDetail[1]
+        const product = proDetail[0]
         console.log(product)
     
-
 
   return (
     <div className="product">
       <div className="productTitleContainer">
         <h1 className="productTitle">Product</h1>
-        <Link to="/newproduct">
-          <button className="productAddButton">Create</button>
-        </Link>
+       
       </div>
       <div className="productTop">
          
@@ -97,4 +84,3 @@ export default function Product() {
     </div>
   );
 }
-
