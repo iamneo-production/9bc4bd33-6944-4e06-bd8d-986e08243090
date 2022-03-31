@@ -4,6 +4,7 @@ import { DeleteOutline } from "@material-ui/icons";
 import { productRows } from "../../../dummyData";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
+import { useParams } from 'react-router-dom'
 
 export default function ProductList() {
   const [tableData, setData] = useState([]);
@@ -17,8 +18,21 @@ export default function ProductList() {
 
 
   const handleDelete = (id) => {
-    setData(tableData.filter((item) => item.id !== id));
-  };
+    fetch(`https://8080-acddafabaffddeefcfbeddbecdddbadefcdd.examlyiopb.examly.io/admin/delete/${id}`,
+    {
+      method:'DELETE'
+    }).then((result)=>{
+      result.json().then((resp)=>{
+        console.warn(resp)
+        //getReviews()
+      })
+    })
+    };
+
+
+  //const handleDelete = (id) => {
+    //setData(tableData.filter((item) => item.id !== id));
+  //};
 
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
@@ -53,9 +67,9 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/products/" + params.row.id}>
-              <button className="productListEdit">Edit</button>
-            </Link>
+
+<Link to={`/products/${params.row.id}`} className="productListEdit">Edit</Link>
+            
             <DeleteOutline
               className="productListDelete"
               onClick={() => handleDelete(params.row.id)}
@@ -67,6 +81,11 @@ export default function ProductList() {
   ];
 
   return (
+    <>
+  
+  <Link to="/newproduct">
+    <button className="productAddButton" >Create</button>
+  </Link>
     <div className="productList">
       <DataGrid
         rows={tableData}
@@ -76,5 +95,6 @@ export default function ProductList() {
         checkboxSelection
       />
     </div>
+</>
   );
 }
