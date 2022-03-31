@@ -7,9 +7,17 @@ import {
   Publish,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import "./user.css";
 
 export default function User() {
+
+  const[email,setEmail]=useState('mon@gmail.com')
+    const[name,setName]=useState('Monica E. Geller')
+    const[number,setNumber]=useState('7845879856')
+    const[address,setAddress]=useState('West Virginia, United States')
+    
+
   return (
     <div className="user">
       <div className="userTitleContainer">
@@ -21,7 +29,7 @@ export default function User() {
           <div className="userShowTop">
            
             <div className="userShowTopTitle">
-              <span className="userShowUsername">Monica E. Geller</span>
+              <span className="userShowUsername">{name}</span>
               
             </div>
           </div>
@@ -30,15 +38,15 @@ export default function User() {
             <span className="userShowTitle">Contact Details</span>
             <div className="userShowInfo">
               <PhoneAndroid className="userShowIcon" />
-              <span className="userShowInfoTitle">7845879856</span>
+              <span className="userShowInfoTitle">{number}</span>
             </div>
             <div className="userShowInfo">
               <MailOutline className="userShowIcon" />
-              <span className="userShowInfoTitle">mon@gmail.com</span>
+              <span className="userShowInfoTitle">{email}</span>
             </div>
             <div className="userShowInfo">
               <LocationSearching className="userShowIcon" />
-              <span className="userShowInfoTitle">West Virginia, United States</span>
+              <span className="userShowInfoTitle">{address}</span>
             </div>
           </div>
         </div>
@@ -52,7 +60,7 @@ export default function User() {
                   type="text"
                   placeholder="Monica E. Geller"
                   className="userUpdateInput"
-                />
+                  onChange={(e)=>setName(e.target.value)}/>
               </div>
              
               <div className="userUpdateItem">
@@ -61,7 +69,7 @@ export default function User() {
                   type="text"
                   placeholder="mon@gmail.com"
                   className="userUpdateInput"
-                />
+                  onChange={(e)=>setEmail(e.target.value)}/>
               </div>
               <div className="userUpdateItem">
                 <label>Phone</label>
@@ -69,7 +77,7 @@ export default function User() {
                   type="text"
                   placeholder="7845879856"
                   className="userUpdateInput"
-                />
+                  onChange={(e)=>setNumber(e.target.value)} />
               </div>
               <div className="userUpdateItem">
                 <label>Address</label>
@@ -77,18 +85,10 @@ export default function User() {
                   type="text"
                   placeholder="West Virginia, United States"
                   className="userUpdateInput"
-                />
+                  onChange={(e)=>setAddress(e.target.value)}/>
               </div>
             </div>
-            <div className="userUpdateRight">
-              <div className="userUpdateUpload">
-               
-                
-                <input type="file" id="file" style={{ display: "none" }} />
-              </div>
-              
-              <button className="userUpdateButton">Update</button>
-            </div>
+           
           </form>
         </div>
       </div>
