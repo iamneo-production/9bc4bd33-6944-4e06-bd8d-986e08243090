@@ -8,6 +8,7 @@ import ProductDetail from './User/components/ProductDetail';
 import Helpdesk from './User/components/Helpdesk'
 import Review from './User/components/Review';
 import Orders from './User/components/Orders';
+import Tracking from './User/components/Tracking';
 import FirstPage from './firstPage/FirstPage';
 import Sidebar from './Admin/components/sidebar/Sidebar';
 import Topbar from './Admin/components/topbar/Topbar';
@@ -36,6 +37,9 @@ function App() {
         <Route path='/product/:id/reviews' element={<Fragment><Header /><Review /></Fragment>}/>
         <Route path='/helpdesk' element={<Fragment><Header /><Helpdesk /></Fragment>} />
         <Route path='/userOrders' element={<Fragment><Header /><Orders /></Fragment>} />
+        <Route path='/customer-service' element={<Fragment><Header/><Helpdesk/></Fragment>}/>
+        <Route path='/tracking/:id' element={<Fragment><Header/><Tracking/></Fragment>}/>
+        
         <Route path='/admin/login' element={<Login />} />
         <Route path='/ForgetPassword' element={<ForgetPassword />} />
         <Route path='/Home' element={<Fragment><Sidebar /><Home /></Fragment>} />
